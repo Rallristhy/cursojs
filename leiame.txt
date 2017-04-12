@@ -1,0 +1,51 @@
+## Adicionar repositório
+	git remote add cursojs httpsgithub.comRallristhycursojs.git
+
+## Instalar mondoDB, criar uma pasta C:\data\db que serão armazenados os dados
+
+## Adicionar o caminho de instalação do mongoDB em PATH:
+	C:\Program Files\MongoDB\Server\3.4\bin
+
+## Abrir terminal e iniciar o serviço do mongo:
+	mongod
+
+## Comandos do Mongo
+	Entrar console do mongo: mongo
+
+	listar bases: show dbs
+
+	Entrar em uma base: use "nomedabase"
+
+	Mostar qual banco está conectado: db
+
+	Criar collection no banco: db.createCollection('nomedacolletion') (Collection == Tabela)
+
+	Mostrar collections do banco: show collections
+
+	Remover collection do banco: db."nomedacolletion".drop()
+
+	inserir dados em uma collection: db.billingcycles.insert({name:"Janeiro/2017", month: 1, year: 2017})
+		Obs: Se não existir a collection, a mesma será criada
+
+	Inserir/Atualizar um dado: db.billingcycles.save({name:"Fevereiro/2017", month: 2, year: 2017})
+		Objeto um pouco mais complexo:
+		db.billingcycles.insert({name: "Março/2017", 
+								 month: 3, 
+								 year: 2017, 
+								 credits: [ {name: "Salário", value: 5000} 
+								 ], 
+								 debts: [ 
+								 {name: "Luz", value: 100, status: "PAGO"},
+								 {name: "Telefone", value: 100, status: "PENDENTE"}
+								 ] 
+								})
+
+	Procurar registros em uma collection: db.billingcycles.find()
+		Formatado: db.billingcycles.find().pretty()
+		Apenas o primeiro registro: db.billingcycles.findOne()
+		Filtro: db.billingcycles.find({month: 2}).pretty()
+		Filtro com OR: db.billingcycles.find({$or: [{month: 1}, {month: 2}]}).pretty()
+		Filtro de atributo: db.billingcycles.find({credits: {$exists:true}}).pretty()
+		Limitar visualização de consultas: skip = head, limit = tail
+			db.billingcycles.find({year: 2017}).skip(1).limit(1)
+
