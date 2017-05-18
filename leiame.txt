@@ -40,7 +40,8 @@
 								 ] 
 								})
 
-	Procurar registros em uma collection: db.billingcycles.find()
+
+	Consultas - Procurar registros em uma collection: db.billingcycles.find()
 		Formatado: db.billingcycles.find().pretty()
 		Apenas o primeiro registro: db.billingcycles.findOne()
 		Filtro: db.billingcycles.find({month: 2}).pretty()
@@ -48,4 +49,13 @@
 		Filtro de atributo: db.billingcycles.find({credits: {$exists:true}}).pretty()
 		Limitar visualização de consultas: skip = head, limit = tail
 			db.billingcycles.find({year: 2017}).skip(1).limit(1)
+
+	Agregação 
+		$Project - Projeta apenas dos dados de integresse
+		$Group - agrupa o retorno de project
+
+		db.billingcycles.aggregate([{
+		 							 $project:{credit:{$sum:"$credits.value"}, debt:{$sum:"$debts.value"}}, }, {
+		 							 	$group:{_id:null, credit:{$sum:"$credit"}, debt:{$sum:"$debt"}} 
+		 							}])
 
