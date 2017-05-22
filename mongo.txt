@@ -18,7 +18,7 @@
 
 	Mostar qual banco está conectado: db
 
-	Criar collection no banco: db.createCollection('nomedacolletion') (Collection == Tabela)
+	Criar collection no banco: db.createCollection('billingcycles') (Collection == Tabela)
 
 	Mostrar collections do banco: show collections
 
@@ -59,3 +59,23 @@
 		 							 	$group:{_id:null, credit:{$sum:"$credit"}, debt:{$sum:"$debt"}} 
 		 							}])
 
+	UPDATE
+		db.billingcycles.update(
+								{$and:[{month:1}, {year: 2017}]},
+								{$set: {credits:[{name: "Salário", value: 5000}]}}
+								)
+
+		Busca todos os objetos que possuem o atributo credits
+		db.billingcycles.find({credits:{$exists: true}}, {_id: 0, name: 1}).pretty()
+
+	Contagem
+		db.billingcycles.count()
+
+	Delete
+		Remove apenas o mês 2
+		db.billingcycles.remove({month: 2})
+
+		Remove todos os registros de 2017 limitando apenas 1 elemento, ou seja, remove apenas o primeiro elemento de 2017
+		db.billingcycles.remove({year: 2017}, 1)
+
+		db.dropDatabase()
