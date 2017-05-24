@@ -1,0 +1,14 @@
+{
+  "name": "cursojs",
+  "version": "1.0.0",
+  "description": "Curso JS",
+  "main": "ex01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rallristhy",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
