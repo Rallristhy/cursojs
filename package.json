@@ -1,5 +1,5 @@
 {
-  "name": "cursojs",
+  "name": "express_curso",
   "version": "1.0.0",
   "description": "Curso JS",
   "main": "ex01.js",
@@ -9,6 +9,7 @@
   "author": "Rallristhy",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.4",
     "lodash": "^4.17.4"
   }
 }

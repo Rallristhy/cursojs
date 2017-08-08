@@ -1,0 +1,12 @@
+/* 
+* Iniciar configuração npm para instalar pacotes
+* Será criado o package.json
+*/
+npm init
+
+/* 
+* Instalando express
+* --save salva o express no package.json
+* Assim apenas com um npm install, o arquivo json será lido, instalando os módulos
+*/
+npm install --save express
