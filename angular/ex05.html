@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', []);
+
+		/*
+		* Filter, modificadores que transforme a letra em maiúscula, por exemplo
+		* Localizar a aplicação angular.module.('app')
+		*/
+		angular.module('app').filter('upper', function(){
+			return function(input){
+				return input.toUpperCase();
+			}
+		});
+
+		/* Localizar a aplicação angular.module.('app')
+		* [] é utilizado para importar componentes para dentro da controller criada
+		* se tivesse mais diretivas em [] é necessário colocar como parâmetros na function
+		* Não é utilizado a $scope, e sim a controller 
+		*/
+		angular.module('app').controller('MeuController', [
+
+			function(){
+				/* Garantindo que o self é a controller atual */
+				const self = this;
+				/* Cria a variável value dentro do scopo */
+				self.value = "texto";
+
+			}
+		]);
+
+	</script>
+
+</head>
+<body>
+
+	<!-- Cria uma referencia para a controller, no caso ctrl -->
+	<div ng-controller="MeuController as ctrl">
+
+		<!-- 
+			value do scopo 
+			| upper significa que será utilizado o filter upper criado
+		-->
+		<h1>{{ctrl.value | upper }}</h1>
+
+		<!-- Criado um listener que atualizará a variável value -->
+		<input ng-model="ctrl.value"/>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', []);
+		/* Localizar a aplicação angular.module.('app')
+		* [] é utilizado para importar componentes para dentro da controller criada
+		* se tivesse mais diretivas em [] é necessário colocar como parâmetros na function
+		* $scope é um intermediário entre a controller e a view(DOM), ele possui as variáveis e funcionalidades que serão visualizadas pela view
+		*/
+		angular.module('app').controller('MeuController', [
+			'$scope',
+			function($scope){
+				/* Cria a variável value dentro do scopo */
+				$scope.value = 10;
+
+				/* Criação da função inc dentro do scopo */
+				$scope.inc = function(){
+					$scope.value++;
+				}
+
+			}
+		]);
+
+	</script>
+
+</head>
+<body>
+	<div ng-controller="MeuController">
+
+		<!-- value do scopo -->
+		<h1>{{value}}</h1>
+
+		<!-- Criado um listener que atualizará a variável value -->
+		<input ng-model="value"/>
+
+		<!-- chamando a função inc() do scopo -->
+		<button ng-click="inc()">Inc</button>
+
+	</div>
+</body>
+</html>

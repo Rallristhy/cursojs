@@ -1,1 +1,3 @@
 npm install angular --save
+Não é uma boa prática utilizar o scope para comunicação entre a controller e a view(DOM)
+	

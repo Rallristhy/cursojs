@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', []);
+
+		/*
+		* Factory, padrão de projeto que cria um objeto, retorna um singleton
+		* Localizar a aplicação angular.module.('app')
+		* utils é o nome da factory
+		* [] são dependencias, injeções
+		*/
+		angular.module('app').factory('utils', function() {
+
+			function upper(input){
+				return input.toUpperCase();
+			}
+
+			/* Cria um objeto upper e retorna o mesmo */
+			return { upper };
+
+		});
+
+		angular.module('app').controller('MeuController', [
+
+			/* Adiciona a factory criada na controller */
+			'utils',
+
+			function(utils){
+				const self = this;
+				self.value = utils.upper("texto");
+			}
+
+		]);
+		
+
+	</script>
+
+</head>
+<body>
+
+	<div ng-controller="MeuController as ctrl">
+		<h1>{{ ctrl.value }}</h1>
+	</div>
+
+</body>
+</html>
