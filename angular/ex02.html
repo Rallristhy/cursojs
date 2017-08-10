@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', [])
+
+	</script>
+
+</head>
+<body>
+	<h1>{{ value }}</h1>
+
+	<!-- one-time-binding, value será escutado apenas uma vez -->
+	<h2>{{:: value }}</h2>
+
+	<!-- ng-model é uma binding que transforma value em uma variavel dinamica, a medida que alterar o input o valor em h1 será alterado também -->
+	<input ng-model="value">
+</body>
+</html>
