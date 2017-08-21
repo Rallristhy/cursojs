@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', [])
+
+		/*
+		* Directive
+		*/
+		angular.module('app').directive('meuRelogio', function(){
+			/* 
+			* Retorna um objeto 
+			* restrict: 'AE' aceita usar diretiva como atributo ou como elemento, 
+			* pode ser usado A apenas para atributo e E apenas para elemento
+			*/
+			return {
+				restrict: 'AE',
+				template: `<h2>${new Date}</h2>`
+			};
+		});
+
+	</script>
+
+</head>
+<body>
+	<!-- 
+		Diretiva como atributo 
+
+	-->
+	<h1>Atributo</h1>
+	<div meu-relogio>
+		
+	</div>
+	<h1>Elemento</h1>
+	<meu-relogio></meu-relogio>
+	
+</body>
+</html>

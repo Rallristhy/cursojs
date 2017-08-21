@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- Diretiva ng-app, significa que o angular irá controla todos conteúdo dentro de html -->
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Fundamentos Angular</title>
+	
+	<!-- Importando angular -->
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript">
+
+		/*
+		* app é o nome da aplicação
+		* [] são as dependencias
+		* 
+		*/
+		angular.module('app', [])
+
+		/*
+		* Componente
+		* Bindings, parâmetros de entrada
+		* $ctrl. é possível acessar as bindings
+		* @ passa um valor simples, uma string, 
+		* < bingding de uma direção, ou seja, envia do componente para 
+		* a controller(scopo), mas não da controller para o comporente
+		* = bingding de uma bidirecional entre o componente e o escopo
+		*/
+		angular.module('app').component('field', {
+			bindings: {
+				id: '@',
+				label: '@',
+				model: '='
+			},
+			template: `
+				<label for="{{ $ctrl.id }}"> {{ $ctrl.label }}</label>
+				<input id="{{ $ctrl.id }}" ng-model='$ctrl.model'>
+			`
+
+		});
+
+		/* Criando uma controller */
+		angular.module('app').controller('MeuController', function() {
+			const self = this;
+			self.name = "Anônimo";
+		});	
+
+	</script>
+
+</head>
+<body>
+	<div ng-controller="MeuController as ctrl">
+
+		<h1>{{ ctrl.name }}</h1>
+
+		<!-- Instanciando o componente criado  com os parâmetros id, label e model -->
+		<field id="nome" label="Nome" model="ctrl.name">
+	</div>
+</body>
+</html>

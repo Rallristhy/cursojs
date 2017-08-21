@@ -18,19 +18,17 @@
 		angular.module('app', []);
 
 		/*
-		* Factory, padrão de projeto que cria um objeto, retorna um singleton
+		* Service utiliza uma função, estancia como singleton e disponibiliza externamente
 		* Localizar a aplicação angular.module.('app')
-		* utils é o nome da factory
+		* utils é o nome do service
 		* [] são dependencias, injeções
 		*/
-		angular.module('app').factory('utils', function() {
-
-			function upper(input){
+		angular.module('app').service('utils', function() {
+			/* É necessário colocar this para tornar publica esse função, tornando visível externamente */
+			this.upper = function (input){
 				return input.toUpperCase();
 			}
 
-			/* Cria um objeto upper e retorna o mesmo */
-			return { upper };
 
 		});
 

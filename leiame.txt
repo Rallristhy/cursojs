@@ -1,0 +1,29 @@
+Instalar dependências
+npm install express 
+			body-parser
+			mongoose
+			node-restful
+			mongoose-paginate
+			lodash
+			express-query-int
+			pm2
+	--save (para salvar no package.json, assim apos importar o projeto em outro local, sem a pasta node_modules, é necessário apenas executar npm install, assim o package.json será lido, instalando as dependencias).
+
+npm install nodemon --save-dev (apenas para desenvolvimento -dev)	(nodemon restarta a app automaticamente)
+
+Alterar o package.json scripts:
+	"scripts": {
+		"dev": "nodemon",
+	    "production": "pm2 start loader.js --name backend"
+	}
+
+--Para Executar scripts do package.json
+npm run dev
+npm run production
+
+adicionar no arquivo .gitignore:
+	node_modules
+	*.log
+
+--Abrir um novo console e digitar mongod para iniciar o mongo
+
