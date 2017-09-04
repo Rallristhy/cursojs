@@ -27,3 +27,20 @@ adicionar no arquivo .gitignore:
 
 --Abrir um novo console e digitar mongod para iniciar o mongo
 
+npm install admin-lte 
+			angular 
+			angular-animate 
+			angular-toastr 
+			angular-ui-router 
+			font-awesome 
+			babel-preset-es2015 
+			gulp 
+			gulp-babel 
+			gulp-concat 
+			gulp-htmlmin 
+			gulp-uglify 
+			gulp-uglifycss 
+			gulp-util 
+			gulp-watch 
+			gulp-webserver --save-dev
+
