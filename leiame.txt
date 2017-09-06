@@ -27,20 +27,22 @@ adicionar no arquivo .gitignore:
 
 --Abrir um novo console e digitar mongod para iniciar o mongo
 
-npm install admin-lte 
+npm install admin-lte #template, jquery e bootstrap
 			angular 
 			angular-animate 
 			angular-toastr 
-			angular-ui-router 
-			font-awesome 
-			babel-preset-es2015 
-			gulp 
+			angular-ui-router #navegação da app
+			font-awesome #icones 
+			babel-preset-es2015 #garante compatibilidade com os navegadores
+			gulp #build
 			gulp-babel 
+			babel-register
 			gulp-concat 
-			gulp-htmlmin 
-			gulp-uglify 
-			gulp-uglifycss 
+			gulp-htmlmin #reduz o tamanho do HTML
+			gulp-uglify #reduz o tamanho do JS
+			gulp-uglifycss #reduz o tamanho do CSS
 			gulp-util 
-			gulp-watch 
-			gulp-webserver --save-dev
+			gulp-watch #monitora os arquivos sempre que mudar o server faz o reload 
+			gulp-webserver #servidor web gulp
+			--save-dev
 
